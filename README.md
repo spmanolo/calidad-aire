@@ -9,6 +9,7 @@ Se necesitaría algún tipo de aplicación que recopile datos de los sensores de
 ciudades andaluzas que proporciona la Junta de Andalucía para poder procesar esos datos e 
 intentar dar una solución al problema.
 
+
 LISTA DE COMPROBACIÓN
 * [X] ¿Se trata de un problema real del que se tenga conocimiento personal?
 * [X] ¿Se trata de un problema que para solucionar requiera el despliegue
