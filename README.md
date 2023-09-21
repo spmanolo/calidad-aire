@@ -1,4 +1,4 @@
-# calidad-aire
+# Aplicación para calcular y comprobar la calidad del aire en las provincias andaluzas
 
 El cliente es una persona o un grupo de personas con el mismo problema: tienen alergia y 
 a la hora de salir a la calle necesitarían saber el nivel de la calidad del aire y CO2 
