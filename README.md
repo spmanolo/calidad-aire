@@ -10,7 +10,7 @@ ciudades andaluzas que proporciona la Junta de Andalucía para poder procesar es
 intentar dar una solución al problema.
 
 A continuación de describen las historias de usuario y los diferentes milestones que se deberán llevar a cabo:
-[Historias de Usuario](/docs/historias_usuario.md)
-[Milestones](/docs/milestones.md)
+- [Historias de Usuario](/docs/historias_usuario.md)
+- [Milestones](/docs/milestones.md)
 
 [Configuración de Git](/docs/git_config.png)
