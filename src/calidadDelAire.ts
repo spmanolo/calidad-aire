@@ -1,4 +1,4 @@
-import { Localizacion } from "./localizacion";
+import { Localizacion } from "./zona";
 import { MedicionesDeContaminacion } from "./medicionesDeContaminacion";
 
 /**
