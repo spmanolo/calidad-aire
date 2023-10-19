@@ -24,44 +24,4 @@ export class MedicionesDeContaminacion {
         this.o3 = o3;
         this.so2 = so2;
     }
-
-    /**
-     * Metedo que devuelve la medición de PM10.
-     * @returns Medición de PM10.
-     */
-    public getPm10(): number {
-        return this.pm10;
-    }
-
-    /**
-     * Metedo que devuelve la medición de PM2.5.
-     * @returns Medición de PM2.5.
-     */
-    public getPm25(): number {
-        return this.pm25;
-    }
-
-    /**
-     * Metedo que devuelve la medición de NO2.
-     * @returns Medición de NO2.
-     */
-    public getNo2(): number {
-        return this.no2;
-    }
-
-    /**
-     * Metedo que devuelve la medición de O3.
-     * @returns Medición de O3.
-     */
-    public getO3(): number {
-        return this.o3;
-    }
-
-    /**
-     * Metedo que devuelve la medición de SO2.
-     * @returns Medición de SO2.
-     */
-    public getSo2(): number {
-        return this.so2;
-    }
 }

@@ -1,4 +1,4 @@
-import { Localizacion } from "./zona";
+import { Zona } from "./zona";
 import { MedicionesDeContaminacion } from "./medicionesDeContaminacion";
 
 /**
@@ -8,7 +8,7 @@ import { MedicionesDeContaminacion } from "./medicionesDeContaminacion";
 class calidadDelAire {
 
     private dia: Date;
-    private zona: Localizacion;
+    private zona: Zona;
     private contaminacion: Array<MedicionesDeContaminacion>;
 
     /**
@@ -16,10 +16,8 @@ class calidadDelAire {
      * @param dia 
      * @param zona 
      * @param contaminacion 
-     * @param mediaDeContaminacion 
-     * @param fiabilidad 
      */
-    constructor(dia: Date, zona: Localizacion, contaminacion: Array<MedicionesDeContaminacion>) {
+    constructor(dia: Date, zona: Zona, contaminacion: Array<MedicionesDeContaminacion>) {
         this.dia = dia;
         this.zona = zona;
         this.contaminacion = contaminacion;
