@@ -3,7 +3,7 @@
  * Objeto valor que representa la zona.
  */
 export class Zona {
-    private privincia: string;
+    private provincia: string;
     private municipio: string;
     private estacion: string;
 
@@ -14,7 +14,7 @@ export class Zona {
      * @param estacion Estación de la zona.
      */
     constructor(provincia: string, municipio: string, estacion: string) {
-        this.privincia = provincia;
+        this.provincia = provincia;
         this.municipio = municipio;
         this.estacion = estacion;
     }
