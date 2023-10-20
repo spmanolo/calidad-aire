@@ -1,5 +1,5 @@
 import { Zona } from "./zona";
-import { MedicionesDeContaminacion } from "./medicionesDeContaminacion";
+import { MedicionesDeContaminacion } from "./mediciones_de_contaminacion";
 
 /**
  * Clase calidadDelAire.
