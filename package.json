@@ -2,6 +2,9 @@
   "name": "calidad-aire",
   "module": "src/calidad_del_aire.ts",
   "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit src/calidad_del_aire.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
