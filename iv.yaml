@@ -2,4 +2,4 @@ lenguaje: TypeScript
 entidad: src/calidad_del_aire.ts
 automatizar:
   fichero: package.json
-  orden: bun run check
+  orden: bun run
