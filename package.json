@@ -1,0 +1,11 @@
+{
+  "name": "calidad-aire",
+  "module": "src/calidad_del_aire.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
