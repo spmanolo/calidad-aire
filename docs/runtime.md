@@ -1,4 +1,10 @@
-Para TypeScript existen tres _runtime_ conocidos: estos son NodeJS, Deno y Bun. Como criterio principal para mi decisión he priorizado la comodidad de tener todas las funcionalidades en un solo runtime (gestor de dependencias, task runner, test runner...), por lo que me he decidido por usar **Bun**, que además es el más rápido ya que está basado en JavaScriptCore, el motor creado por Safari y orientado al rendimiento. Además es muy sencillo e intuitivo, lo cual facilitará el desarrollo.
+Para TypeScript existen tres _runtime_ conocidos: estos son NodeJS, Deno y Bun. Me he decidido por usar **Bun**, que además es el más rápido ya que está basado en JavaScriptCore, el motor creado por Safari y orientado al rendimiento. Además es muy sencillo e intuitivo, lo cual facilitará el desarrollo.
+
+### Criterios de elección
+
+- Como criterio principal para mi decisión he priorizado la comodidad de tener todas las funcionalidades en un solo runtime (gestor de dependencias, task runner, test runner...)
+
+- Otro criterio a tener en cuenta es la velocidad de ejecución y de instalación de dependencias, ya que esto es siempre un factor importante en el desarrollo.
 
 #### Node.JS:
 
