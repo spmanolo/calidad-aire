@@ -3,3 +3,4 @@ entidad: src/calidad_del_aire.ts
 automatizar:
   fichero: package.json
   orden: bun run
+test: test/calidad_del_aire.test.ts

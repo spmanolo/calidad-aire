@@ -15,12 +15,18 @@ intentar dar una solución al problema.
 
 ### Clase CalidadDelAire
 
-La clase CalidadDelAire es la clase principal de la aplicación que se encarga de gestionar y procesar los datos de contaminación que se obtienen de los sensores de las distintas ciudades andaluzas.
+Es la clase principal de la aplicación que se encarga de gestionar los datos obtenidos de un fichero de mediciones de contaminación obtienidos de los sensores de las distintas ciudades andaluzas, y las procesa para obtener una media de los distintos valores de contaminación.
 
 Para comprobar la sintaxis de la clase se debe ejecutar el siguiente comando para compilar el archivo principal sin generar el archivo JavaScript:
 
 ```bash
 bun run check
+```
+
+Para comprobar la lógica de negocio de la clase se debe ejecutar el test de la siguiente forma:
+
+```bash
+bun test
 ```
 
 #### Información adicional
