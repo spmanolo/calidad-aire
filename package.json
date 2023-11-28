@@ -9,6 +9,9 @@
     "bun-types": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "5.0.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security"
   }
 }
