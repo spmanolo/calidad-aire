@@ -3,7 +3,8 @@
   "module": "src/calidad_del_aire.ts",
   "type": "module",
   "scripts": {
-    "check": "tsc --noEmit src/calidad_del_aire.ts"
+    "check": "tsc --noEmit src/calidad_del_aire.ts",
+    "test": "bun test"
   },
   "devDependencies": {
     "bun-types": "latest"

@@ -26,7 +26,7 @@ bun run check
 Para comprobar la lógica de negocio de la clase se debe ejecutar el test de la siguiente forma:
 
 ```bash
-bun test
+bun run test
 ```
 
 #### Información adicional
