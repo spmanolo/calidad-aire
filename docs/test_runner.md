@@ -6,6 +6,18 @@ Para TypeScript existen varios frameworks para escribir tests bastante conocidos
 
 - Otro criterio a tener en cuenta es el mantenimiento del framework, ya que esto es siempre un factor importante en el desarrollo, que la herramienta esté ativa con constantes actualizaciones y que no esté obsoleta.
 
+## Bibliotecas de aserciones
+
+### Chai
+
+Es una biblioteca de aserciones que sigue el estilo BDD y es muy completa, por lo que es fácil de leer y escribir. Además, es compatible con TypeScript. Se actualiza frecuentemente y tiene una gran comunidad detrás, por lo que es una buena opción.
+
+### Hein
+
+Es una biblioteca de aserciones principalmente enfocada en TypeScript. Es una biblioteca bastante completa y sigue el estilo BDD. Además se actualiza con frecuencia y aunque no es tan popular, la menciono por su interés en enfocarse en TypeScript.
+
+## Frameworks de tests
+
 ### Jest
 
 Este framework es el más popular de todos. Tiene una gran comunidad detrás y es fácil de configurar. Sin embargo, no viene integrado con Bun, así que habría que instalarlo como dependencia de desarrollo.
