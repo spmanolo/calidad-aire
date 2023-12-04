@@ -135,18 +135,16 @@ describe("Comprobar mediciones de contaminación", () => {
 
         const medicionesDeContaminacion: Array<MedicionesDeContaminacion> =
           calidadDelAire.getMedicionesContaminacion();
-        // esperamos obtener tantas mediciones de una zona como horas tenga un día
+
         expect(medicionesDeContaminacion.length).toBe(24);
 
         const mediaMedidas: Array<[string, number]> =
           calidadDelAire.calcularMediaContaminacion();
 
-        // esperamos obtener 5 mediciones de contaminación
         expect(mediaMedidas.length).toBe(5);
 
         console.log("media de mediciones: ", mediaMedidas);
 
-        // esperamos obtener las mediciones de contaminación correctas
         expect(mediaMedidas).toEqual(datos.expected);
       }
     );
