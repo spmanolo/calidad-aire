@@ -2,7 +2,7 @@ Para TypeScript existen varios frameworks para escribir tests bastante conocidos
 
 ## Criterios de elección
 
-- Como criterio principal voy a establecer la facilidad de uso y la velocidad de ejecución. Con facilidad de uso también me refiero a la integración con el runtime, así que si el framework ya viene integrado, mejor.
+- Como criterio principal voy a establecer la integración con Bun, ya que es el runtime que he elegido para este proyecto. Además de la velocidad de ejecución y facilidad de uso.
 
 - Otro criterio a tener en cuenta es el mantenimiento del framework, ya que esto es siempre un factor importante en el desarrollo, que la herramienta esté ativa con constantes actualizaciones y que no esté obsoleta.
 
