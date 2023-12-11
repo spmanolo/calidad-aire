@@ -8,28 +8,28 @@ Para TypeScript existen varios frameworks para escribir tests bastante conocidos
 
 ## Bibliotecas de aserciones
 
-### Chai
+### [Chai](https://www.chaijs.com/)
 
 Es una biblioteca de aserciones que sigue el estilo BDD y es muy completa, por lo que es fácil de leer y escribir. Además, es compatible con TypeScript. Se actualiza frecuentemente y tiene una gran comunidad detrás, por lo que es una buena opción.
 
-### Hein
+### [Hein](https://heinjs.com/)
 
 Es una biblioteca de aserciones principalmente enfocada en TypeScript. Es una biblioteca bastante completa y sigue el estilo BDD. Además se actualiza con frecuencia y aunque no es tan popular, la menciono por su interés en enfocarse en TypeScript.
 
 ## Frameworks de tests
 
-### Jest
+### [Jest](https://jestjs.io/)
 
 Este framework es el más popular de todos. Tiene una gran comunidad detrás y es fácil de configurar. Sin embargo, no viene integrado con Bun, así que habría que instalarlo como dependencia de desarrollo.
 
-### Mocha
+### [Mocha](https://mochajs.org/)
 
 Mocha es un framework para escribir tests unitarios en JavaScript y TypeScript, pero ya no es tan usado y no se actualiza de forma tan continua como el resto, además no viene integrado con Bun, así que habría que instalarlo como dependencia de desarrollo.
 
-### Cypress
+### [Cypress](https://www.cypress.io/)
 
 Cypress es un framework de tests que ofrece muchas facilidades de uso a la hora de escribir tests, como testear directamente desde el navegador o hacer debug de los tests. Además es un framework para tests end-to-end, esto nos permite testear la aplicación en todo su conjunto, desde el punto de vista del usuario, por lo que es una buena práctica si queremos probar que la aplicación satisface las necesidades del usuario. Sin embargo, aunque es un framework muy potente y rápido, no viene integrado con Bun, así que habría que instalarlo como dependencia de desarrollo.
 
-### Bun test
+### [Bun test](https://bun.sh/docs/cli/test)
 
 Bun integra un framework de tests que es muy sencillo de usar, además de que no hay que instalar nada, por lo que es una buena opción para este proyecto. Además, al ser un framework de tests unitarios, nos permite testear cada parte de la aplicación por separado, lo que nos permite encontrar errores de forma más rápida y sencilla. Al estar integrado con Bun es compatible con TypeScript y está pensado para ello, lo cual también es un punto a favor. También se definen pruebas con una [API similar a la de Jest](https://bun.sh/docs/test/writing), lo que nos da la seguridad de saber que está 'inspirado' en uno de los mayores frameworks para JavaScript y TypeScript. Por último, es un framework que se actualiza de forma continua, por lo que no hay que preocuparse por su mantenimiento.
