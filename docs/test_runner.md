@@ -16,6 +16,10 @@ Es una biblioteca de aserciones que sigue el estilo BDD y es muy completa, por l
 
 Es una biblioteca de aserciones principalmente enfocada en TypeScript. Es una biblioteca bastante completa y sigue el estilo BDD. Además se actualiza con frecuencia y aunque no es tan popular, la menciono por su interés en enfocarse en TypeScript.
 
+### [bun:test](https://bun.sh/docs/cli/test)
+
+Bun ya viene con su propia biblioteca de aserciones, por lo que no hay que instalar nada. Además, es compatible con TypeScript y está pensado para ello y también sigue el estilo BDD. Es la mejor opción teniendo en cuenta los criterios de elección.
+
 ## Frameworks de tests
 
 ### [Jest](https://jestjs.io/)
