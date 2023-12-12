@@ -19,10 +19,6 @@ export class ParticulasDelAire {
     }
   }
 
-  public getMedicionesContaminacion(): Array<MedicionesDeContaminacion> {
-    return this.contaminacion;
-  }
-
   public extraerMediciones(
     infoMediciones: string
   ): Array<MedicionesDeContaminacion> {

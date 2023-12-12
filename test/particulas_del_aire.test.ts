@@ -131,11 +131,6 @@ describe("Comprobar mediciones de contaminación", () => {
           mediciones
         );
 
-        const medicionesDeContaminacion: Array<MedicionesDeContaminacion> =
-          calidadDelAire.getMedicionesContaminacion();
-
-        expect(medicionesDeContaminacion.length).toBe(24);
-
         const mediaMedidas: Array<[string, number]> =
           calidadDelAire.calcularDatosParaAlergicos();
 
