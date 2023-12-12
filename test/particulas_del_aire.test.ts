@@ -131,8 +131,6 @@ describe("Comprobar mediciones de contaminación", () => {
           mediciones
         );
 
-        console.log("zona: ", calidadDelAire.getZona());
-
         const medicionesDeContaminacion: Array<MedicionesDeContaminacion> =
           calidadDelAire.getMedicionesContaminacion();
 
@@ -142,8 +140,6 @@ describe("Comprobar mediciones de contaminación", () => {
           calidadDelAire.calcularDatosParaAlergicos();
 
         expect(mediaMedidas.length).toBe(5);
-
-        console.log("media de mediciones: ", mediaMedidas);
 
         expect(mediaMedidas).toEqual(datos.expected);
       }

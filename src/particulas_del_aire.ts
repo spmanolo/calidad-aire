@@ -23,10 +23,6 @@ export class ParticulasDelAire {
     return this.contaminacion;
   }
 
-  public getZona(): Array<string> {
-    return this.zona.getZona();
-  }
-
   public extraerMediciones(
     infoMediciones: string
   ): Array<MedicionesDeContaminacion> {
