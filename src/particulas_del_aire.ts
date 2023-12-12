@@ -1,7 +1,8 @@
 import { Zona } from "./zona";
 import { MedicionesDeContaminacion } from "./mediciones_de_contaminacion";
 import { DatosDeMedicion } from "./datos_de_medicion";
-export class CalidadDelAire {
+
+export class ParticulasDelAire {
   private dia: Date;
   private zona: Zona;
   private contaminacion: Array<MedicionesDeContaminacion>;
@@ -57,11 +58,9 @@ export class CalidadDelAire {
     return contaminacion;
   }
 
-  // hacer la media de las mediciones de contaminación
-  public calcularMediaContaminacion(): Array<[string, number]> {
+  public calcularDatosParaAlergicos(): Array<[string, number]> {
     let mediciones: number[] = new Array(5).fill(0);
 
-    // sumar los valores de cada contaminante
     this.contaminacion.forEach((medicion) => {
       const medicionesTotales: Array<[string, number]> =
         medicion.getMediciones();
@@ -75,7 +74,6 @@ export class CalidadDelAire {
       parseFloat((medicion / this.contaminacion.length).toFixed(2))
     );
 
-    // terminar de hacer la media y parsear a dos decimales
     const media: MedicionesDeContaminacion = new MedicionesDeContaminacion(
       mediaValores
     );

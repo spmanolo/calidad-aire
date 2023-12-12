@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { DatosDeMedicion } from "../src/datos_de_medicion";
-import { CalidadDelAire } from "../src/calidad_del_aire";
+import { ParticulasDelAire } from "../src/particulas_del_aire";
 import { MedicionesDeContaminacion } from "../src/mediciones_de_contaminacion";
 import { Zona } from "../src/zona";
 
@@ -125,7 +125,7 @@ describe("Comprobar mediciones de contaminación", () => {
       () => {
         const mediciones = new DatosDeMedicion(datos.medicionesRuta);
 
-        const calidadDelAire = new CalidadDelAire(
+        const calidadDelAire = new ParticulasDelAire(
           datos.dia,
           datos.zona,
           mediciones
@@ -139,7 +139,7 @@ describe("Comprobar mediciones de contaminación", () => {
         expect(medicionesDeContaminacion.length).toBe(24);
 
         const mediaMedidas: Array<[string, number]> =
-          calidadDelAire.calcularMediaContaminacion();
+          calidadDelAire.calcularDatosParaAlergicos();
 
         expect(mediaMedidas.length).toBe(5);
 
