@@ -4,9 +4,9 @@ export class Zona {
   private estacion: string;
 
   constructor(provincia: string, municipio: string, estacion: string) {
-    this.provincia = provincia.trim();
-    this.municipio = municipio.trim();
-    this.estacion = estacion.trim();
+    this.provincia = provincia.trim().toUpperCase();
+    this.municipio = municipio.trim().toUpperCase();
+    this.estacion = estacion.trim().toUpperCase();
   }
 
   public getZona(): Array<string> {

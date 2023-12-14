@@ -1,8 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { DatosDeMedicion } from "../src/datos_de_medicion";
 import { ParticulasDelAire } from "../src/particulas_del_aire";
-import { MedicionesDeContaminacion } from "../src/mediciones_de_contaminacion";
-import { Zona } from "../src/zona";
 
 describe("Comprobar mediciones de contaminación", () => {
   const datosPrueba = [
@@ -10,13 +8,13 @@ describe("Comprobar mediciones de contaminación", () => {
       nombre: "Granada",
       dia: new Date("2023-11-24"),
       medicionesRuta: "data/GR_20231124.csv",
-      zona: new Zona("GRANADA", "ARMILLA", "CIUDAD DEPORTIVA"),
+      zona: "granada, granada",
       expected: Array<[string, number]>(
-        ["pm10", 33.72],
-        ["pm25", 0],
-        ["no2", 27.88],
-        ["o3", 34.91],
-        ["so2", 4.17]
+        ["pm10", 23.31],
+        ["pm25", 10.92],
+        ["no2", 47],
+        ["o3", 17.61],
+        ["so2", 9.81]
       ),
       ruta: "https://www.juntadeandalucia.es/medioambiente/atmosfera/informes_siva/cuantitativo/2023/GR_20231124.csv",
     },
@@ -24,7 +22,7 @@ describe("Comprobar mediciones de contaminación", () => {
       nombre: "Almería",
       dia: new Date("2023-01-01"),
       medicionesRuta: "data/AL_20230101.csv",
-      zona: new Zona("ALMERIA", "EJIDO, EL", "EL EJIDO"),
+      zona: "almeria, ejido el",
       expected: Array<[string, number]>(
         ["pm10", 56.64],
         ["pm25", 0],
@@ -37,20 +35,20 @@ describe("Comprobar mediciones de contaminación", () => {
       nombre: "Cádiz",
       dia: new Date("2023-01-23"),
       medicionesRuta: "data/CA_20230123.csv",
-      zona: new Zona("CADIZ", "ALGECIRAS", "ALGECIRAS EPS"),
+      zona: "cadiz, algeciras",
       expected: Array<[string, number]>(
-        ["pm10", 9.18],
-        ["pm25", 0],
-        ["no2", 20.25],
-        ["o3", 62.54],
-        ["so2", 2.67]
+        ["pm10", 4.59],
+        ["pm25", 3.68],
+        ["no2", 20.58],
+        ["o3", 31.27],
+        ["so2", 3.25]
       ),
     },
     {
       nombre: "Córdoba",
       dia: new Date("2023-02-03"),
       medicionesRuta: "data/CO_20230203.csv",
-      zona: new Zona("CORDOBA", "ESPIEL", "POBLADO"),
+      zona: "cordoba, espiel",
       expected: Array<[string, number]>(
         ["pm10", 2.37],
         ["pm25", 0],
@@ -63,24 +61,20 @@ describe("Comprobar mediciones de contaminación", () => {
       nombre: "Huelva",
       dia: new Date("2023-01-26"),
       medicionesRuta: "data/HU_20230126.csv",
-      zona: new Zona("HUELVA", "HUELVA", "LA ORDEN"),
+      zona: "huelva, huelva",
       expected: Array<[string, number]>(
-        ["pm10", 15.24],
-        ["pm25", 0],
-        ["no2", 2.46],
-        ["o3", 43.31],
-        ["so2", 16.63]
+        ["pm10", 20.16],
+        ["pm25", 2.46],
+        ["no2", 12.17],
+        ["o3", 14.7],
+        ["so2", 8.51]
       ),
     },
     {
       nombre: "Jaén",
       dia: new Date("2023-02-28"),
       medicionesRuta: "data/JA_20230228.csv",
-      zona: new Zona(
-        "JAEN",
-        "VILLANUEVA DEL ARZOBISPO",
-        "VILLANUEVA DEL ARZOBISPO"
-      ),
+      zona: "jaen, villanueva del arzobispo",
       expected: Array<[string, number]>(
         ["pm10", 18.09],
         ["pm25", 0],
@@ -93,7 +87,7 @@ describe("Comprobar mediciones de contaminación", () => {
       nombre: "Málaga",
       dia: new Date("2023-03-05"),
       medicionesRuta: "data/MA_20230305.csv",
-      zona: new Zona("MALAGA", "CAMPILLOS", "CAMPILLOS"),
+      zona: "malaga, campillos",
       expected: Array<[string, number]>(
         ["pm10", 0],
         ["pm25", 4.89],
@@ -106,7 +100,7 @@ describe("Comprobar mediciones de contaminación", () => {
       nombre: "Sevilla",
       dia: new Date("2023-03-17"),
       medicionesRuta: "data/SE_20230317.csv",
-      zona: new Zona("SEVILLA", "DOS HERMANAS", "DOS HERMANAS"),
+      zona: "sevilla, dos hermanas",
       expected: Array<[string, number]>(
         ["pm10", 0],
         ["pm25", 0],

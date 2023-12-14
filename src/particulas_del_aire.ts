@@ -7,16 +7,25 @@ export class ParticulasDelAire {
   private zona: Zona;
   private contaminacion: Array<MedicionesDeContaminacion>;
 
-  constructor(dia: Date, zona: Zona, mediciones: DatosDeMedicion) {
+  constructor(dia: Date, zona: string, mediciones: DatosDeMedicion) {
     this.dia = dia;
-    this.zona = zona;
+    this.zona = this.obtenerZona(zona);
     let infoMediciones: string | null = mediciones.getMediciones();
 
-    if (infoMediciones) {
+    if (infoMediciones && this.zona instanceof Zona) {
       this.contaminacion = this.extraerMediciones(infoMediciones);
     } else {
       this.contaminacion = [];
     }
+  }
+
+  public obtenerZona(zona: string): Zona {
+    let elementos_zona: Array<string> = zona.split(",");
+    let provincia = elementos_zona[0];
+    let municipio = elementos_zona[1];
+    let estacion = elementos_zona[2] ? elementos_zona[2] : "";
+
+    return new Zona(provincia, municipio, estacion);
   }
 
   public extraerMediciones(
@@ -38,7 +47,12 @@ export class ParticulasDelAire {
       if (
         zona_linea
           .getZona()
-          .every((zona, index) => zona === this.zona.getZona()[index])
+          .slice(0, 2)
+          .every(
+            (zona, index) =>
+              zona.replace(/,/g, "") ===
+              this.zona.getZona().slice(0, 2)[index].replace(/,/g, "")
+          )
       ) {
         let indices = [5, 6, 7, 8, 9];
         let mediciones = indices.map((i) => Number(elementos_linea[i]));
