@@ -64,8 +64,16 @@ export class ParticulasDelAire {
     return contaminacion;
   }
 
-  public calcularDatosParaAlergicos(): Array<[string, number]> {
+  public calcularDatosParaAlergicos(mañana: number): Array<[string, number]> {
     let mediciones: number[] = new Array(5).fill(0);
+
+    this.contaminacion =
+      mañana == 0
+        ? this.contaminacion.slice(0, this.contaminacion.length / 2)
+        : this.contaminacion.slice(
+            this.contaminacion.length / 2,
+            this.contaminacion.length
+          );
 
     this.contaminacion.forEach((medicion) => {
       const medicionesTotales: Array<[string, number]> =
