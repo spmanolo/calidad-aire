@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { DatosDeMedicion } from "../src/datos_de_medicion";
 import { ParticulasDelAire } from "../src/particulas_del_aire";
+import type { MedicionDeContaminacion } from "../src/particulas_del_aire";
 
 describe("Comprobar mediciones de contaminación", () => {
   const datosPrueba = [
@@ -10,13 +10,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 0,
       medicionesRuta: "data/GR_20231124.csv",
       zona: "granada, granada",
-      expected: Array<[string, number]>(
-        ["pm10", 21.78],
-        ["pm25", 10.31],
-        ["no2", 38],
-        ["o3", 17.66],
-        ["so2", 9.88]
-      ),
+      expected: {
+        pm10: 21.78,
+        pm25: 10.31,
+        no2: 38,
+        o3: 17.66,
+        so2: 9.88,
+      } as MedicionDeContaminacion,
       ruta: "https://www.juntadeandalucia.es/medioambiente/atmosfera/informes_siva/cuantitativo/2023/GR_20231124.csv",
     },
     {
@@ -25,13 +25,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 0,
       medicionesRuta: "data/AL_20230101.csv",
       zona: "almeria, ejido el",
-      expected: Array<[string, number]>(
-        ["pm10", 56.85],
-        ["pm25", 0],
-        ["no2", 34.08],
-        ["o3", 3.92],
-        ["so2", 3.33]
-      ),
+      expected: {
+        pm10: 56.85,
+        pm25: 0,
+        no2: 34.08,
+        o3: 3.92,
+        so2: 3.33,
+      } as MedicionDeContaminacion,
     },
     {
       nombre: "Cádiz",
@@ -39,13 +39,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 1,
       medicionesRuta: "data/CA_20230123.csv",
       zona: "cadiz, algeciras",
-      expected: Array<[string, number]>(
-        ["pm10", 4.62],
-        ["pm25", 3.98],
-        ["no2", 27.5],
-        ["o3", 31.04],
-        ["so2", 3.71]
-      ),
+      expected: {
+        pm10: 4.62,
+        pm25: 3.98,
+        no2: 27.5,
+        o3: 31.04,
+        so2: 3.71,
+      } as MedicionDeContaminacion,
     },
     {
       nombre: "Córdoba",
@@ -53,13 +53,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 0,
       medicionesRuta: "data/CO_20230203.csv",
       zona: "cordoba, espiel",
-      expected: Array<[string, number]>(
-        ["pm10", 4.73],
-        ["pm25", 0],
-        ["no2", 2.92],
-        ["o3", 0],
-        ["so2", 3.25]
-      ),
+      expected: {
+        pm10: 4.73,
+        pm25: 0,
+        no2: 2.92,
+        o3: 0,
+        so2: 3.25,
+      } as MedicionDeContaminacion,
     },
     {
       nombre: "Huelva",
@@ -67,13 +67,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 1,
       medicionesRuta: "data/HU_20230126.csv",
       zona: "huelva, huelva",
-      expected: Array<[string, number]>(
-        ["pm10", 21.31],
-        ["pm25", 2.49],
-        ["no2", 13.36],
-        ["o3", 15.25],
-        ["so2", 8.68]
-      ),
+      expected: {
+        pm10: 21.31,
+        pm25: 2.49,
+        no2: 13.36,
+        o3: 15.25,
+        so2: 8.68,
+      } as MedicionDeContaminacion,
     },
     {
       nombre: "Jaén",
@@ -81,13 +81,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 1,
       medicionesRuta: "data/JA_20230228.csv",
       zona: "jaen, villanueva del arzobispo",
-      expected: Array<[string, number]>(
-        ["pm10", 19.66],
-        ["pm25", 0],
-        ["no2", 14.75],
-        ["o3", 70.32],
-        ["so2", 0]
-      ),
+      expected: {
+        pm10: 19.66,
+        pm25: 0,
+        no2: 14.75,
+        o3: 70.32,
+        so2: 0,
+      } as MedicionDeContaminacion,
     },
     {
       nombre: "Málaga",
@@ -95,13 +95,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 0,
       medicionesRuta: "data/MA_20230305.csv",
       zona: "malaga, campillos",
-      expected: Array<[string, number]>(
-        ["pm10", 0],
-        ["pm25", 4.88],
-        ["no2", 4.5],
-        ["o3", 106.13],
-        ["so2", 0]
-      ),
+      expected: {
+        pm10: 0,
+        pm25: 4.88,
+        no2: 4.5,
+        o3: 106.13,
+        so2: 0,
+      } as MedicionDeContaminacion,
     },
     {
       nombre: "Sevilla",
@@ -109,13 +109,13 @@ describe("Comprobar mediciones de contaminación", () => {
       mañana: 0,
       medicionesRuta: "data/SE_20230317.csv",
       zona: "sevilla, dos hermanas",
-      expected: Array<[string, number]>(
-        ["pm10", 0],
-        ["pm25", 0],
-        ["no2", 10.5],
-        ["o3", 70.57],
-        ["so2", 3.17]
-      ),
+      expected: {
+        pm10: 0,
+        pm25: 0,
+        no2: 10.5,
+        o3: 70.57,
+        so2: 3.17,
+      } as MedicionDeContaminacion,
     },
   ];
 
@@ -124,19 +124,18 @@ describe("Comprobar mediciones de contaminación", () => {
       "debería obtener correctamente las mediciones de " +
         `${datos.nombre}` +
         " desde su fichero dada una zona",
-      () => {
-        const mediciones = new DatosDeMedicion(datos.medicionesRuta);
-
+      async () => {
         const calidadDelAire = new ParticulasDelAire(
           datos.dia,
           datos.zona,
-          mediciones
+          datos.medicionesRuta
         );
 
-        const mediaMedidas: Array<[string, number]> =
-          calidadDelAire.calcularDatosParaAlergicos(datos.mañana);
+        const mediaMedidas = await calidadDelAire.calcularDatosParaAlergicos(
+          datos.mañana
+        );
 
-        expect(mediaMedidas.length).toBe(5);
+        expect(Object.keys(mediaMedidas).length).toBe(5);
 
         expect(mediaMedidas).toEqual(datos.expected);
       }

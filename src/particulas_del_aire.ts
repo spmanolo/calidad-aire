@@ -1,22 +1,29 @@
 import { Zona } from "./zona";
-import { MedicionesDeContaminacion } from "./mediciones_de_contaminacion";
-import { DatosDeMedicion } from "./datos_de_medicion";
+
+export type MedicionDeContaminacion = {
+  pm10: number;
+  pm25: number;
+  no2: number;
+  o3: number;
+  so2: number;
+};
 
 export class ParticulasDelAire {
   private dia: Date;
   private zona: Zona;
-  private contaminacion: Array<MedicionesDeContaminacion>;
+  private mediciones: Array<MedicionDeContaminacion> = [];
+  private ruta_archivo: string;
 
-  constructor(dia: Date, zona: string, mediciones: DatosDeMedicion) {
+  constructor(dia: Date, zona: string, ruta: string) {
     this.dia = dia;
     this.zona = this.obtenerZona(zona);
-    let infoMediciones: string | null = mediciones.getMediciones();
+    this.ruta_archivo = ruta;
+  }
 
-    if (infoMediciones && this.zona instanceof Zona) {
-      this.contaminacion = this.extraerMediciones(infoMediciones);
-    } else {
-      this.contaminacion = [];
-    }
+  private async inicializar() {
+    const archivo = Bun.file(this.ruta_archivo);
+    const contenido_archivo = await archivo.text();
+    this.mediciones = this.extraerMediciones(contenido_archivo);
   }
 
   public obtenerZona(zona: string): Zona {
@@ -29,10 +36,10 @@ export class ParticulasDelAire {
   }
 
   public extraerMediciones(
-    infoMediciones: string
-  ): Array<MedicionesDeContaminacion> {
-    let contaminacion: Array<MedicionesDeContaminacion> = [];
-    let lineas: Array<string> = infoMediciones.split("\n");
+    contenido_archivo: string
+  ): Array<MedicionDeContaminacion> {
+    let mediciones: Array<MedicionDeContaminacion> = [];
+    let lineas: Array<string> = contenido_archivo.split("\n");
 
     lineas.shift();
     lineas.pop();
@@ -55,43 +62,69 @@ export class ParticulasDelAire {
           )
       ) {
         let indices = [5, 6, 7, 8, 9];
-        let mediciones = indices.map((i) => Number(elementos_linea[i]));
-        let medicion = new MedicionesDeContaminacion(mediciones);
-        contaminacion.push(medicion);
+        let medicion_linea = indices.map((i) => Number(elementos_linea[i]));
+        let medicion: MedicionDeContaminacion = {
+          pm10: medicion_linea[0],
+          pm25: medicion_linea[1],
+          no2: medicion_linea[2],
+          o3: medicion_linea[3],
+          so2: medicion_linea[4],
+        };
+
+        mediciones.push(medicion);
       }
     });
 
-    return contaminacion;
+    return mediciones;
   }
 
-  public calcularDatosParaAlergicos(mañana: number): Array<[string, number]> {
-    let mediciones: number[] = new Array(5).fill(0);
+  public async calcularDatosParaAlergicos(mañana: number) {
+    if (this.mediciones.length == 0) {
+      await this.inicializar();
+    }
 
-    this.contaminacion =
+    this.mediciones =
       mañana == 0
-        ? this.contaminacion.slice(0, this.contaminacion.length / 2)
-        : this.contaminacion.slice(
-            this.contaminacion.length / 2,
-            this.contaminacion.length
+        ? this.mediciones.slice(0, this.mediciones.length / 2)
+        : this.mediciones.slice(
+            this.mediciones.length / 2,
+            this.mediciones.length
           );
 
-    this.contaminacion.forEach((medicion) => {
-      const medicionesTotales: Array<[string, number]> =
-        medicion.getMediciones();
+    let medicionesTotales: MedicionDeContaminacion = {
+      pm10: 0,
+      pm25: 0,
+      no2: 0,
+      o3: 0,
+      so2: 0,
+    };
 
-      medicionesTotales.forEach((medicion, index) => {
-        mediciones[index] += medicion[1];
-      });
-    });
+    for (let medicion of this.mediciones) {
+      for (let key in medicion) {
+        medicionesTotales[key as keyof MedicionDeContaminacion] +=
+          medicion[key as keyof MedicionDeContaminacion];
+      }
+    }
 
-    let mediaValores = mediciones.map((medicion) =>
-      parseFloat((medicion / this.contaminacion.length).toFixed(2))
-    );
+    let mediaValores: MedicionDeContaminacion = {
+      pm10: 0,
+      pm25: 0,
+      no2: 0,
+      o3: 0,
+      so2: 0,
+    };
 
-    const media: MedicionesDeContaminacion = new MedicionesDeContaminacion(
-      mediaValores
-    );
+    for (let key in medicionesTotales) {
+      if (medicionesTotales.hasOwnProperty(key)) {
+        mediaValores[key as keyof MedicionDeContaminacion] = parseFloat(
+          (
+            medicionesTotales[key as keyof MedicionDeContaminacion] /
+            this.mediciones.length
+          ).toFixed(2)
+        );
+      }
+    }
 
-    return media.getMediciones();
+    return mediaValores;
   }
 }
