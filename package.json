@@ -8,8 +8,5 @@
   },
   "devDependencies": {
     "bun-types": "latest"
-  },
-  "dependencies": {
-    "fs": "0.0.1-security"
   }
 }
