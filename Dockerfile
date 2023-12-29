@@ -1,6 +1,6 @@
 FROM debian:12-slim
 
-LABEL version="5.0.4" \
+LABEL version="5.0.5" \
     maintainer="manolosan2001@correo.ugr.es"
 
 RUN apt update && \
