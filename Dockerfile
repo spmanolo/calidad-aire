@@ -1,7 +1,7 @@
 FROM debian:12-slim
 
 LABEL version="5.0.1" \ 
-    maintaner="manolosan2001@correo.ugr.es"
+    maintainer="manolosan2001@correo.ugr.es"
 
 RUN apt update && \
     apt install -y curl unzip && \
