@@ -15,11 +15,13 @@ RUN curl -fsSL https://bun.sh/install | bash
 
 ENV PATH="/home/bun/.bun/bin:${PATH}"
 
-WORKDIR /app/test
+WORKDIR /app/
 
 COPY package.json ./ \
     bun.lockb ./
 
 RUN bun install
+
+WORKDIR /app/test/
 
 ENTRYPOINT ["bun", "run", "test"]
