@@ -15,10 +15,17 @@ RUN curl -fsSL https://bun.sh/install | bash
 
 ENV PATH="/home/bun/.bun/bin:${PATH}"
 
+USER root
+
+RUN apt remove curl unzip -y && \
+    apt autoremove -y && \
+    apt clean -y
+
+USER bun
+
 WORKDIR /app/
 
-COPY package.json ./ \
-    bun.lockb ./
+COPY package.json bun.lockb ./
 
 RUN bun install
 
