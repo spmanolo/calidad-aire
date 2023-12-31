@@ -33,13 +33,25 @@ bun run test
 
 Se ha construido una imagen de la aplicación para poder ejecutarla en un contenedor de Docker.
 
-Para construir la imagen:
+Para construir la imagen usando el gestor de tareas:
+
+```bash
+bun run build-docker
+```
+
+O bien:
 
 ```bash
 docker build -t spmanolo/calidad-aire .
 ```
 
-Para ejecutar la imagen:
+Para ejecutar la imagen usando el gestor de tareas:
+
+```bash
+bun run docker
+```
+
+O bien:
 
 ```bash
 docker run -u 1001 -tv `pwd`:/app/test spmanolo/calidad-aire

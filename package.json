@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "check": "tsc --noEmit src/calidad_del_aire.ts",
-    "test": "bun test"
+    "test": "bun test",
+    "build-docker": "docker build -t calidad-aire .",
+    "docker": "docker run -u 1001 -tv `pwd`:/app/test spmanolo/calidad-aire"
   },
   "devDependencies": {
     "bun-types": "latest"
