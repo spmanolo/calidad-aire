@@ -29,6 +29,34 @@ Para comprobar la lógica de negocio de la clase se debe ejecutar el test de la 
 bun run test
 ```
 
+### Imagen de la aplicación
+
+Se ha construido una imagen de la aplicación para poder ejecutarla en un contenedor de Docker.
+
+Para construir la imagen usando el gestor de tareas:
+
+```bash
+bun run build-docker
+```
+
+O bien:
+
+```bash
+docker build -t spmanolo/calidad-aire .
+```
+
+Para ejecutar la imagen usando el gestor de tareas:
+
+```bash
+bun run docker
+```
+
+O bien:
+
+```bash
+docker run -u 1001 -tv `pwd`:/app/test spmanolo/calidad-aire
+```
+
 #### Información adicional
 
 A continuación de describen las historias de usuario y los diferentes milestones que se deberán llevar a cabo:
@@ -37,3 +65,7 @@ A continuación de describen las historias de usuario y los diferentes milestone
 - [Milestones](/docs/milestones.md)
 
 [Configuración de Git](/docs/git_config.png)
+
+```
+
+```
