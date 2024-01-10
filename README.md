@@ -65,7 +65,3 @@ A continuación de describen las historias de usuario y los diferentes milestone
 - [Milestones](/docs/milestones.md)
 
 [Configuración de Git](/docs/git_config.png)
-
-```
-
-```
